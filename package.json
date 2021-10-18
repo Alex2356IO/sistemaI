@@ -4,7 +4,6 @@
   "description": "mysqljwtauth",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
     "start": "node ./server.js"
   },
   "keywords": [
