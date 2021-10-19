@@ -11,7 +11,7 @@ const[usuario,setUsuario]=useState({
 
     function handleInputSubmit(e){
         e.preventDefault();
-      axios.post(window.env.HOST_SIGNUP, {
+      axios.post(process.env.REACT_APP_HOST_SIGNUP, {
         usuario: usuario.usuario,
         email:usuario.email,
         pword:usuario.pword,

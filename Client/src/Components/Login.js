@@ -14,7 +14,7 @@ function handleInputSubmit(e){
         'Accept' : '*/*',
         'withCredentials': 'true'};
         
-      axios.post(window.env.HOST_SIGNIN, {
+      axios.post(process.env.REACT_APP_HOST_SIGNIN, {
         usuario: usuario.usuario,
         pword:usuario.pword,
         },{withCredentials:true} 
@@ -33,7 +33,6 @@ function handleInputSubmit(e){
        setUsuario({...usuario,
         [e.target.id] : e.target.value
         } );
-
 
     }
 

@@ -80,7 +80,9 @@ app.listen(PORT, () => {
 });
 
   // set static folder renders reactapp
-  app.use(express.static('../Client/build'));
+  const path =require('path');
+  app.use(express.static('./Client/build'));
+  
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname,'../' ,'Client', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname,'./' ,'Client', 'build', 'index.html'));
   });
