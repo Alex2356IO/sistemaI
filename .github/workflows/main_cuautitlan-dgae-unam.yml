@@ -26,6 +26,7 @@ jobs:
           npm install
           npm install --prefix Client 
           npm run build --prefix Client
+          npm start --prefix Client
           
 
       - name: Upload artifact for deployment job
