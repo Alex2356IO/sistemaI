@@ -1,6 +1,6 @@
 const db = require("../models");
 const config = require("../config/auth.config");
-const User = db.user;
+const User = db.usuario;
 const Role = db.role;
 
 const Op = db.Sequelize.Op;
@@ -11,9 +11,9 @@ var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
-    usuario: req.body.usuario,
-    email: req.body.email,
-    pword: bcrypt.hashSync(req.body.pword, 8)
+    Usuario: req.body.usuario,
+    Email: req.body.email,
+    Pword: bcrypt.hashSync(req.body.pword, 8)
   })
   .then(user => {
     if (req.body.roles) {
@@ -43,7 +43,7 @@ exports.signup = (req, res) => {
 exports.signin = (req, res) => {
   User.findOne({
     where: {
-      usuario: req.body.usuario
+      Usuario: req.body.usuario
     }
   })
     .then(user => {
@@ -53,7 +53,7 @@ exports.signin = (req, res) => {
 
       var passwordIsValid = bcrypt.compareSync(
         req.body.pword,
-        user.pword
+        user.Pword
       );
 
       if (!passwordIsValid) {
@@ -70,14 +70,14 @@ exports.signin = (req, res) => {
       var authorities = [];
       user.getRoles().then(roles => {
         for (let i = 0; i < roles.length; i++) {
-          authorities.push("ROLE_" + roles[i].name.toUpperCase());
+          authorities.push("ROLE_" + roles[i].Nombre.toUpperCase());
         }
   res.cookie('x-access-token' , token ,{ withCredentials:true,httpOnly: true }).
 then(
         res.status(200).send({
           id: user.id,
-          usuario: user.usuario,
-          email: user.email,
+          Usuario: user.usuario,
+          Email: user.email,
           roles: authorities,
           accessToken: token
         }))
