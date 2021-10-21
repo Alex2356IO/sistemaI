@@ -31,6 +31,10 @@ db.alumnos = require("../models/alumnos.model.js")(sequelize,Sequelize);
 db.carreras = require("../models/carreras.model.js")(sequelize,Sequelize);
 db.materias = require("../models/materias.model.js")(sequelize,Sequelize);
 
+
+
+
+
 //Relación usuario(idusuario) ->roles(idrole) muchos a muchos en nueva tabla "user_roles"
 db.role.belongsToMany(db.user, {
   through: "user_roles",

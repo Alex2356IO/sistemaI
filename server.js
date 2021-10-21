@@ -50,6 +50,7 @@ app.use(function(req, res, next) {
 
 
 function initial() {
+
   Role.create({
     id: 1,
     name: "user"
