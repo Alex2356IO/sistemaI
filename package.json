@@ -4,8 +4,9 @@
   "description": "mysqljwtauth",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server.js",
-    "build": "react-scripts build"
+    "start": "env-cmd -f .env.production node ./server.js",
+    "build": "react-scripts build",
+    "dev": "npm run build:dev --prefix Client && env-cmd -f .env.dev  nodemon ./server.js"
   },
   "keywords": [
     "node.js",
@@ -22,6 +23,7 @@
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",

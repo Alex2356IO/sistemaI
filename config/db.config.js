@@ -1,5 +1,7 @@
 module.exports = {
-    HOST: "mysqldgae.mysql.database.azure.com",
+  
+  HOST: process.env.NODE_ENV = 'dev'?  '127.0.0.1':
+   process.env.NODE_ENV='production'?"mysqldgae.mysql.database.azure.com":"noenv",
     USER: process.env.USERDB,
     PASSWORD: process.env.PWORDDB,
     DB: "sistemainscripciones",
