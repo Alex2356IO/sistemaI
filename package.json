@@ -4,7 +4,7 @@
   "description": "mysqljwtauth",
   "main": "server.js",
   "scripts": {
-    "start": "env-cmd -f .env.production node ./server.js",
+    "start": "npm run build --prefix Client && env-cmd -f .env.production node ./server.js",
     "build": "react-scripts build",
     "dev": "npm run build:dev --prefix Client && env-cmd -f .env.dev  nodemon ./server.js"
   },

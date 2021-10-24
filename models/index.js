@@ -201,6 +201,6 @@ db.carreras.hasOne(db.materias,{
   foreignKey:"idcarrera"
   })
   */
-db.ROLES = ["user", "admin", "moderator"];
+db.ROLE = ["user", "admin", "moderator"];
 
 module.exports = db;

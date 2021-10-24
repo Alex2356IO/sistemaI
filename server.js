@@ -50,7 +50,7 @@ app.use(function(req, res, next) {
 
 
 function initial() {
-
+try {
   Role.create({
     Id: 1,
     Nombre: "user"
@@ -65,6 +65,10 @@ function initial() {
     Id: 3,
     Nombre: "admin"
   });
+}catch(err){
+console.log(err);
+
+}
 }
 
 //routes
